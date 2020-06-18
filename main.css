@@ -1,0 +1,134 @@
+h2{
+    padding: 10px;
+}
+
+/*========== 開始頁面 ==========*/
+.intro-middle {
+    display: inline-block;
+    vertical-align: middle;
+}
+ /*========== homepage ==========*/
+.home{
+    background-color: rgb(255, 234, 188);
+}
+.homepage{
+    /* height: 300px; */
+    /* width: fit-content; */
+    margin:0 auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.479);
+    display: block;
+    /* position: relative; */
+    
+}
+
+/*=======練習頁面=======*/
+#info{
+    height: 60px;
+}
+
+.answer{
+    width: 100%;
+    /* height: 100vw; */
+}
+
+.imgplace{
+    width: 45vw;
+    height: 45vw;
+    margin: 0 auto;
+    margin-top: calc((100vw - 45vw)/2) auto;
+    margin-right: 2vw;
+    background-size: cover;
+    display: inline-block;
+}
+
+.answerzone{
+    margin: 5vw;
+    display: inline-block;
+}
+
+
+
+.btn-choice{
+    min-height: 40px;
+
+}
+
+.flex{
+    justify-content:center;
+  }
+  
+
+/*============== Result頁面 ==============*/
+
+/*======= 結果圖片樣式 =======*/
+.answerimg{
+    max-height: 200px;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.Result{
+    margin-top: 20px;
+}
+
+/* ============================================================ */
+/* =======================~~我是分隔線~~========================= */
+/* ============================================================ */
+
+/* ==========按鈕樣式設定==========*/
+.btn{
+    background-color: #eeb690;
+    border-radius: 15px;
+    color: black;
+    max-width: 45vw;
+    min-width: 120px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.btn:active{
+    box-shadow: inset -2px -2px 4px rgb(54, 29, 8);
+}
+
+@media (hover: hover) {
+    .btn:hover{
+        background-color: rgb(180, 113, 26);
+        color: white;
+        
+    }
+}
+/*========== 分隔線 ==========*/
+.division{
+    width: 100%;
+    height: 2px;
+    margin: 3px;
+    border-radius: 50%;
+    background-color: coral;
+    text-align: center;
+}
+
+
+
+
+/*======= 顯示或隱藏項目 =======*/
+.hideResult{
+    display:none;
+}
+
+.showResult{
+    display: block;
+}
+
+
+/* 跑馬燈https://www.wibibi.com/info.php?tid=68
+
+方向設定：direction="參數值"；可設定 up（向上）、dun（向下）、left（向左）、right（向右）。
+對齊設定：align="參數值"；可設定 top（向上對齊）、midden（垂直至中）、botton（向下對齊）。
+速度設定：scrollamount="參數值" ；可設定為數字，通常設定 1~10 的範圍，數字越大跑得越快。
+長度設定：height="參數值"；數字，自行設定。
+寬度設定：width="參數值"；數字，自行設定。
+行為設定：behavior="參數值"；可設定 alternate（來回跑）、slide（跑入後停止）。
+背景顏色：bgcolor="參數值"；可設定為顏色的色碼，不設定則沒有顏色。
+
+*/
