@@ -15,13 +15,28 @@
     <link rel="stylesheet" href="animate.css">
     <!-- icon -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#BGM")[0].play();
+        });
 
+        function playsound()
+        {
+            $("#BGM")[0].play();
+            $("#BGM")[0].pause();
+
+            setTimeout(function(){
+                $("#BGM")[0].currentTime = 0;
+                $("#BGM")[0].play();
+            }, 2000);
+        }
+    </script>
+
+</head>
+<body class="home">
     <!-- BGM 參考https://www.itread01.com/content/1541140444.html -->
     <audio src="./music/BGM-Glacier.mp3" loop="loop" preload="auto" autoplay></audio>
     <!-- 音樂檔案來自YouTube音效庫 -->
-</head>
-<body class="home">
-
     <div class="container homepage text-center align-items-center">
         <div class="row">
             <div class="col-12">
