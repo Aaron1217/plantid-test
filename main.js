@@ -1,11 +1,8 @@
-
 /** 
  * 隨機序列函式序
  * 參考自kChen老師
  * 0.1
 */
-
-//  按兩個**則會變成JSDoc,若使用到文件內的函式時，可顯示成註解內容
 var RandomInt = (start, end) => {
     // 計算放大的倍數
     let n = end - start + 1
@@ -17,7 +14,6 @@ var RandomInt = (start, end) => {
     r = r + start
     return r
 }
-
 
 /**
  * 產生從 start 到 end 的整數亂數，每次執行打亂 Times 次
@@ -41,42 +37,6 @@ var RandomArray = (start, end,Times)=>{
     return  randomArray;
 }
 
-// // 計時https://blog.xuite.net/gkyo0510/wretch/242324286-JS%E5%9F%BA%E7%A4%8E%E8%AA%9E%E6%B3%95+%28Timer+%E8%A8%88%E6%99%82%E5%99%A8%29
-// var count = 0;
-// //計時器
-// var tID = setInterval(myFunc01 , 1000);
-
-// function myFunc01(){
-//     console.log("已經過了"+count+"秒");
-//     count++;
-//     if( count >= 10 ){
-//     clearInterval(tID);
-//     }
-// }
-
-//======================================================================
-//==============================倒數計時設定==============================
-//======================================================================
-// //有問題！
-// /**
-//  * 倒數計時的語法，參考// 倒數計時https://ccckaass.pixnet.net/blog/post/191126086-%5Bjavascript%5D-%E5%80%92%E6%95%B8%E8%A8%88%E6%99%82%E5%99%A8
-//  * @param {number} time 倒數的時間（單位：毫秒）
-//  * @param {id} ID 欲加上的文字
-//  * @param {Function} Function 倒數結束時欲執行的function
-// */
-// var myTimeout = (time, ID, Function)=>{
-// !function MyCounter(){
-
-// if(time<=0){
-//     Function();
-// }else{
-//     $('#'+ID).text("你還剩下" + (time/1000) + "秒");
-//     setTimeout(MyCounter, 1000);
-// }
-// time-=1000; 
-// }();
-// }
-
 //=======================================================================
 //==============================出題與作答設定==============================
 //=======================================================================
@@ -84,7 +44,7 @@ var RandomArray = (start, end,Times)=>{
 var N = 0; //題號
 var score = 0; //答對題數
 var guestAns = []; //使用者所選之項目
-var time =60000; //時間設定60秒
+var time =100000; //時間設定100秒
 var timeUse = 0; //花費時間
 
 // ============題庫============
@@ -96,58 +56,59 @@ var randomImg=RandomArray(0,55,200); //打亂題庫中的編號順序
 
 
 // =======更換題目的圖片位址=======
-function Fn1(){
+function changeURL(){
     randomImg[N];
     $('.imgplace').remove();
     let $div = $('.answer')
     $img = $('<img>').attr('class', 'imgplace')
     $div.append($img);
     $('.imgplace').attr('src', './img/' + randomImg[N] + '.jpg').attr('class', 'imgplace');  //產生第N題的圖片
-    
 }
+
 
 //=======產生0-99的隨機整數於otherChoice=======
 var otherChoice = []; //隨機的出題選項(0-99)
 var otherChoice = RandomArray(0,99,500);
 
 
-//=======在tmp2產生4個選項(含答案)=======
-var tmp2 =[];//含有答案的四個選項代號
-function Fn3(){
-    // tmp2.splice(0,tmp2.length);
-    tmp2 = [];//清空上一題的選項
-    tmp2.push(randomImg[N]);
+//=======在MC產生4個選項(含答案)=======
+var MC =[];//含有答案的四個選項代號
+function RandomFour(){
+    // MC.splice(0,MC.length);
+    MC = [];//清空上一題的選項
+    MC.push(randomImg[N]);
     otherChoice = RandomArray(0,99,500);
     for(i=0; i<100;i++){
-        if(tmp2.length<4){
+        if(MC.length<4){
             if(otherChoice[i]!=randomImg[N]){
-                tmp2.push(otherChoice[i]);   
+                MC.push(otherChoice[i]);   
             }   else{
                 continue;
             }
-        }   else if(tmp2.lenght=4){
-            return tmp2;
+        }   else if(MC.lenght=4){
+            return MC;
         }
     }  
 };  
 
 
-
-// ================隨機產生答案以外的三個選項================//
+// ================隨機排列選項================//
 var choiceArray = ["A","B","C","D"]; //選項順序
 var randomChoice = []; //0-3隨機整數陣列
-var tmp1 = []; //暫留4個隨機排列的選項名稱（包含答案）
+var randomMC = []; //暫留4個隨機排列的選項名稱（包含答案）
 var randomChoice = RandomArray(0,3,10)
 
-function Fn6(){
+function insertChoice(){
     randomChoice = RandomArray(0,3,10)
     for(i=0; i<4; i++){
-        tmp1 = choiceArray[randomChoice[i]];
-        $('#'+choiceArray[randomChoice[i]]).text(ansName[tmp2[i]]);
+        randomMC = choiceArray[randomChoice[i]];
+        $('#'+choiceArray[randomChoice[i]]).text(ansName[MC[i]]);
     }
 }
+
+
 //===================================================================
-// =============================呈現結果==============================
+//==============================呈現結果==============================
 //===================================================================
 function RESULT(){
     $('#test-area').remove('');
@@ -156,81 +117,152 @@ function RESULT(){
     $btn = $('<button>').attr('class', 'btn').attr('id', 'result').text('查看結果');
     $div.append($btn);
     $('#left').remove();
+    //===============檢視答題結果===============
     $('#result').on('click',()=>{
-        $('#allResult').attr('class','showResult');
-        $('#test-area').remove();
-        $('#summary').text('您一共答對了：'+score+'題，花費時間：'+ timeUse +'秒')
-        $('#result').remove();
-        $('#HOME').attr('class','showResult');
-        $('#AGAIN').attr('class','showResult');
-        
-        for(i=0; i<20;i++){
-            $('#' +i).attr('src', './img/' + randomImg[i] + '.jpg').attr('class', 'answerimg card-img-top');
-            $('#detail'+i).text(('正確答案是：'+ansName[randomImg[i]]));
-            $('#guest'+i).text('(您的答案：'+ guestAns[i] +')');
-            if(guestAns[i]!=ansName[randomImg[i]]){
-                $('#guest'+i).attr('style', 'color:red;')
+        Sound();
+        Anssnd();
+        // 延遲顯示答案
+        !function MyCounter(){
+            if(wait<=0){
+                $('#allResult').attr('class','showResult');
+                $('#test-area').remove();
+                $('#summary').text('您答對：'+score+'題；作答時間：'+ timeUse +'秒')
+                $('#result').remove();
+                $('#HOME').attr('class','showResult');
+                $('#AGAIN').attr('class','showResult');
+                
+                for(i=0; i<20;i++){
+                    $('#' +i).attr('src', './img/' + randomImg[i] + '.jpg').attr('class', 'answerimg card-img-top');
+                    $('#detail'+i).text(('正確答案是：'+ansName[randomImg[i]]));
+                    $('#guest'+i).text('(您的答案：'+ guestAns[i] +')');
+                    if(guestAns[i]!=ansName[randomImg[i]]){
+                        $('#guest'+i).attr('style', 'color:red;');
+                    }
+                    if(document.getElementById('guest'+i).textContent=='(您的答案：undefined)'){
+                        $('#guest'+i).text('您尚未作答本題').attr('style', 'color:red;');
+                    }
+                }
+    
+                //答題結果評價
+                if(score==20){
+                    $('#grade').text('全對...識別小達人非您莫屬！')
+                }else if(score<=19&&score>=17){
+                    $('#grade').text('太強了！認識這麼多植物！')
+                } else if(score<=16&&score>=13){
+                    $('#grade').text('很厲害喔！繼續保持吧～')
+                } else if(score<=12&&score>=9){
+                    $('#grade').text('您的植物辨識還不錯喔！') 
+                } else if(score<=8&&score>=5){
+                    $('#grade').text('放心吧！多練幾次就會進步了！') 
+                } else{
+                    $('#grade').text('別氣餒，再接再厲吧！') 
+                } 
+                $('#answering').attr('class', 'fade-in')  
+            }else{
+                setTimeout(MyCounter, 1000);
             }
-        
-        }
+            wait-=1000; 
+        }();
 
-        //=============答題結果評分==============
-        if(score==20){
-            $('#grade').text('全對...識別小達人非您莫屬！')
-        }else if(score<=19&&score>=17){
-            $('#grade').text('太強了！認識這麼多植物！')
-        } else if(score<=16&&score>=13){
-            $('#grade').text('很厲害喔！繼續保持吧～')
-        } else if(score<=12&&score>=9){
-            $('#grade').text('您的植物辨識還不錯喔！') 
-        } else if(score<=8&&score>=5){
-            $('#grade').text('放心吧！多練幾次就會進步了！') 
-        } else{
-            $('#grade').text('別氣餒，再接再厲吧！') 
-        }   
+        
     });
+    
+}
+//======================================================================
+//================================音效設定================================
+//======================================================================
+//音效來自http://tw.yisell.com/
+//按鈕音效
+var snd = new Audio("music/Mouth-Pop.mp3");
+function Sound(){
+    snd.play();
+    snd.currentTime=0;
 }
 
-
-//============function1_按下開始練習時執行============
+// //倒數
+// var count = new Audio("./music/count.mp3");
+// function Count(){
+//     count.play();
+//     count.currentTime=0;
+// }
+// //倒數十秒
+var countten = new Audio("music/10sec.mp3");
+function CountTen(){
+    countten.play();
+    countten.currentTime=0;
+}
+// //時間到警示
+// var Timesup = new Audio("./music/Timesup.mp3");
+// function TimesUp(){
+//     Timesup.play();
+//     Timesup.currentTime=0;
+// }
+//答案揭曉
+var wait=1000;
+var anssnd = new Audio("./music/answer.mp3")
+function Anssnd(){
+    anssnd.play();
+    anssnd.currentTime=0;
+}
+//===============================================================
+//==================function1_按下開始練習時執行====================
+//===============================================================
 $(() => {
-    $('#start').on('click',() => {
-        var yes = confirm('準備好了嗎？');
-            if (yes) {
-                alert('注意！中途離開頁面將會重新開始。');
-                $('#start').remove();
-                $('#Choice').attr('class','showResult');
-                $('#info').attr('class','hideResult');
-                $('#alert-text').text('');
-                $('#left').text('第1/20題');
-                // myTimeout(400000, TIME, STOP);
-                // 設定倒數計時
-                !function MyCounter(){
-
-                    if(time<=0){
-                        RESULT();
-                        timeUse=time+60;
-                    }else{
-                        $('#TIME').text("你還剩下" + (time/1000) + "秒");
-                        setTimeout(MyCounter, 1000);
-                        timeUse=timeUse+1;
-                    }
-                    time-=1000; 
-                    }();
-                Fn1();  //產生下一張圖片
-                Fn3();  //產生4個順序打亂的選項代號(含答案)
-                Fn6();  //依序將打亂的選項代號對應的名稱填入選項中
-            }
-
-    })
+    // $('#S').on('click',() =>{$('#About').fadeIn(3000);});
     
-// ============偵測選擇的內容是否正確，順便換題目============
+    $('#start').on('click',() => {
+        Sound();
+        var yes = confirm('準備好了嗎？');
+        if (yes) {
+            alert('注意！中途離開頁面將會重新開始。');
+            $('#start').remove();
+            $('#Choice-test').remove();
+            $('#Choice').attr('class','showResult');
+            $('#info').attr('class','hideResult');
+            $('#alert-text').text('');
+            $('#left').text('第1/20題');
+            // myTimeout(400000, TIME, STOP);
+            //========== 設定倒數計時 ==========
+            !function MyCounter(){
+                if(time==10000){
+                    CountTen();
+                    $('#TIME').attr('class', 'alertTen');
+                    $('#TIME').text("您還剩下" + (time/1000) + "秒");
+                    setTimeout(MyCounter, 1000);
+                    timeUse=timeUse+1;
+                }else if(time<=0){
+                    $('#TIME').text("時間到！");
+                    var Timesup = new Audio("./music/Timesup.mp3");
+                    Timesup.play();
+                    Timesup.currentTime=0;
+                    RESULT();
+                } else if(time>10000){
+                    $('#TIME').text("您還剩下" + (time/1000) + "秒");
+                    setTimeout(MyCounter, 1000);
+                    timeUse=timeUse+1;
+                } else{
+                    $('#TIME').attr('class', 'alertTen');
+                    $('#TIME').text("您還剩下" + (time/1000) + "秒");
+                    setTimeout(MyCounter, 1000);
+                    timeUse=timeUse+1;
+                }
+                time-=1000; 
+            }();
+            
+            changeURL();  //產生下一張圖片
+            RandomFour();  //產生4個順序打亂的選項代號(含答案)
+            insertChoice();  //依序將打亂的選項代號對應的名稱填入選項中
+        }
+    })
+
+    // ============偵測選擇的內容是否正確，順便換題目============
     $('.btn-choice').on('click',(e)=>{
+        Sound();
         if(N<20){
-            console.log(e.target.id);
+            // console.log(e.target.id);
             let ida=e.target.id;
             //console.log(ida);
-            console.log($('#'+ida).html());
+            // console.log($('#'+ida).html());
             if($('#'+ida).html()==ansName[randomImg[N]]){
                 // $('#alert-text').text('正確答案是：'+ $('#'+ansName[randomImg[N]]).html());
                 // alert('恭喜您答對了！');
@@ -242,61 +274,18 @@ $(() => {
                 // alert('答錯了，正確答案是'+ansName[randomImg[N]]);
                 N=N+1; //加題號，換下一題
             }
-
-            Fn1();  //產生下一張圖片
-            Fn3();  //產生4個順序打亂的選項代號(含答案)
-            Fn6();  //依序將打亂的選項代號對應的名稱填入選項中
+            changeURL();  //產生下一張圖片
+            RandomFour();  //產生4個順序打亂的選項代號(含答案)
+            insertChoice();  //依序將打亂的選項代號對應的名稱填入選項中
             $('#left').text("第"+(N+1)+"/20題");   // 改變上方題號數
-
         } 
-        
-        if(document.getElementById('left').textContent=='第21/20題'){
+
+        //==================時限內作答完畢呈現答題結果==================
+        if(document.getElementById('left').textContent=="第21/20題"){
             RESULT();
-            // $('#test-area').remove('');
-            // let $div = $('#alert-text');
-            // $btn = $('<button>').attr('class', 'btn').attr('id', 'result').text('查看結果');
-            // $div.append($btn);
         }
-        //==================呈現答題結果==================
-        // $('#result').on('click',()=>{
-        //     $('#allResult').attr('class','showResult');
-        //     $('#test-area').remove();
-        //     $('#left').remove();
-        //     $('#summary').text('您一共答對了：'+score+'題')
-        //     $('#result').remove();
-        //     $('#HOME').attr('class','showResult');
-        //     $('#AGAIN').attr('class','showResult');
-            
-        //     for(i=0; i<20;i++){
-        //         $('#' +i).attr('src', './img/' + randomImg[i] + '.jpg').attr('class', 'answerimg card-img-top');
-        //         $('#detail'+i).text(('正確答案是：'+ansName[randomImg[i]]));
-        //         if(guestAns[i]==ansName[randomImg[i]]){
-        //             $('#guest'+i).text('(您的答案：'+ guestAns[i] +')');
-        //         }else if(guestAns[i]!=ansName[randomImg[i]]){
-        //             $('#guest'+i).attr('style', 'color:red;')
-        //         }else if(guestAns[i]==undefined){
-        //             $('#guest'+i).text('(您未回答此題)');//這邊判斷有問題
-        //         }
-            
-        //     }
-
-        //     //=============答題結果評分==============
-        //     if(score==20){
-        //         $('#grade').text('全對...識別小達人非您莫屬！')
-        //     }else if(score<=19&&score>=17){
-        //         $('#grade').text('太強了！認識這麼多植物！')
-        //     } else if(score<=16&&score>=13){
-        //         $('#grade').text('很厲害喔！繼續保持吧～')
-        //     } else if(score<=12&&score>=9){
-        //         $('#grade').text('您的植物辨識還不錯喔！') 
-        //     } else if(score<=8&&score>=5){
-        //         $('#grade').text('放心吧！多練幾次就會進步了！') 
-        //     } else{
-        //         $('#grade').text('別氣餒，再接再厲吧！') 
-        //     }   
-        // });
     });
-
 })
+
 
 

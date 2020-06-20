@@ -12,19 +12,24 @@
     <!-- 引用自已定義的CSS -->
     <link rel="stylesheet" href="main.css">
 
+    <!-- icon -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- animate -->
+    <link rel="stylesheet" href="animate.css">
 </head>
-<body class="home" style="cursor:default">
+<body class="home" style="cursor:default;">
     <script>
-        alert('本次練習一共20題，作答時間60秒，請觀察右圖後選擇左方相對應的名稱。');
+        alert('本次練習一共20題，作答時間100秒，請觀察右圖後選擇左方相對應的名稱。');
     </script>
     <div class="container">
         <div class="text-center">
             <h2>園藝作物識別練習網</h2>
             <h5 id="alert-text">(以下為作答示意畫面)</h5>
             <div class="text-center hideResult" id="HOME"><a href="index.html" class="btn-main">按我回首頁</a></div>
-            <div class="text-center hideResult" id="AGAIN"><a href="main.html" class="btn-main">重新開始</a></div>
+            <div class="text-center hideResult" id="AGAIN"><a href="main.html" class="btn-main">再試一次</a></div>
             <h4 id="left"></h4>
             <h4 id="TIME"></h4>
+            
         </div>
         <div class="row" id="test-area">
             <!-- 選擇區 -->
@@ -35,6 +40,21 @@
                 <!-- <div>
                     <h5 id="left"></h5>
                 </div> -->
+                <div id="Choice-test">
+                    <div class="btn btn-block" id="Test1">
+                        貓
+                    </div>
+                    <div class="btn btn-block" id="Test2">
+                        狗
+                    </div>
+                    <div class="btn btn-block" id="Test3">
+                        豬
+                    </div>
+                    <div class="btn btn-block" id="Test4">
+                        雞
+                    </div>
+                    
+                </div>
                 <div id="Choice" class="hideResult">
                     <div class="btn btn-block btn-choice" id="A">
                     </div>
@@ -55,179 +75,179 @@
             
         </div>
 
-    <!-- Result -->
-    <div class="text-center hideResult Result" id="allResult">
-            <!-- 答對題數結果 -->
-            <div class="text-center">
-                <h5 id="summary"></h5>
-                <h5 id="grade"></h5>
-            </div>
-            <div id="answerimg">
-            <div class="row text-center flex">
-                <div class="card" style="width: 14rem;">
-                    <h5>第1題</h5>
-                    <img src="..." class="card-img-top" alt="" id="0">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail0">植物名稱</h6>
-                    <p id="guest0">您的回答</p>
+        <!-- Result -->
+        <div class="text-center hideResult Result" id="allResult">
+                <!-- 答對題數結果 -->
+                <div class="text-center">
+                    <h5 id="summary"></h5>
+                    <h5 id="grade"></h5>
+                </div>
+                <div id="answerimg" class="fade-in">
+                <div class="row text-center flex">
+                    <div class="card" style="width: 14rem;">
+                        <h5>第1題</h5>
+                        <img src="..." class="card-img-top" alt="" id="0">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail0">植物名稱</h6>
+                        <p id="guest0">您的回答</p>
 
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第2題</h5>
-                    <img src="..." class="card-img-top" alt="" id="1">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail1">植物名稱</h6>
-                    <p id="guest1">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第2題</h5>
+                        <img src="..." class="card-img-top" alt="" id="1">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail1">植物名稱</h6>
+                        <p id="guest1">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第3題</h5>
-                    <img src="..." class="card-img-top" alt="" id="2">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail2">植物名稱</h6>
-                    <p id="guest2">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第3題</h5>
+                        <img src="..." class="card-img-top" alt="" id="2">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail2">植物名稱</h6>
+                        <p id="guest2">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第4題</h5>
-                    <img src="..." class="card-img-top" alt="" id="3">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail3">植物名稱</h6>
-                    <p id="guest3">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第4題</h5>
+                        <img src="..." class="card-img-top" alt="" id="3">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail3">植物名稱</h6>
+                        <p id="guest3">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第5題</h5>
-                    <img src="..." class="card-img-top" alt="" id="4">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail4">植物名稱</h6>
-                    <p id="guest4">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第5題</h5>
+                        <img src="..." class="card-img-top" alt="" id="4">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail4">植物名稱</h6>
+                        <p id="guest4">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第6題</h5>
-                    <img src="..." class="card-img-top" alt="" id="5">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail5">植物名稱</h6>
-                    <p id="guest5">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第6題</h5>
+                        <img src="..." class="card-img-top" alt="" id="5">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail5">植物名稱</h6>
+                        <p id="guest5">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第7題</h5>
-                    <img src="..." class="card-img-top" alt="" id="6">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail6">植物名稱</h6>
-                    <p id="guest6">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第7題</h5>
+                        <img src="..." class="card-img-top" alt="" id="6">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail6">植物名稱</h6>
+                        <p id="guest6">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第8題</h5>
-                    <img src="..." class="card-img-top" alt="" id="7">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail7">植物名稱</h6>
-                    <p id="guest7">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第8題</h5>
+                        <img src="..." class="card-img-top" alt="" id="7">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail7">植物名稱</h6>
+                        <p id="guest7">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第9題</h5>
-                    <img src="..." class="card-img-top" alt="" id="8">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail8">植物名稱</h6>
-                    <p id="guest8">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第9題</h5>
+                        <img src="..." class="card-img-top" alt="" id="8">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail8">植物名稱</h6>
+                        <p id="guest8">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第10題</h5>
-                    <img src="..." class="card-img-top" alt="" id="9">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail9">植物名稱</h6>
-                    <p id="guest9">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第10題</h5>
+                        <img src="..." class="card-img-top" alt="" id="9">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail9">植物名稱</h6>
+                        <p id="guest9">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第11題</h5>
-                    <img src="..." class="card-img-top" alt="" id="10">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail10">植物名稱</h6>
-                    <p id="guest10">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第11題</h5>
+                        <img src="..." class="card-img-top" alt="" id="10">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail10">植物名稱</h6>
+                        <p id="guest10">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第12題</h5>
-                    <img src="..." class="card-img-top" alt="" id="11">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail11">植物名稱</h6>
-                    <p id="guest11">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第12題</h5>
+                        <img src="..." class="card-img-top" alt="" id="11">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail11">植物名稱</h6>
+                        <p id="guest11">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第13題</h5>
-                    <img src="..." class="card-img-top" alt="" id="12">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail12">植物名稱</h6>
-                    <p id="guest12">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第13題</h5>
+                        <img src="..." class="card-img-top" alt="" id="12">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail12">植物名稱</h6>
+                        <p id="guest12">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第14題</h5>
-                    <img src="..." class="card-img-top" alt="" id="13">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail13">植物名稱</h6>
-                    <p id="guest13">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第14題</h5>
+                        <img src="..." class="card-img-top" alt="" id="13">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail13">植物名稱</h6>
+                        <p id="guest13">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第15題</h5>
-                    <img src="..." class="card-img-top" alt="" id="14">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail14">植物名稱</h6>
-                    <p id="guest14">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第15題</h5>
+                        <img src="..." class="card-img-top" alt="" id="14">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail14">植物名稱</h6>
+                        <p id="guest14">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第16題</h5>
-                    <img src="..." class="card-img-top" alt="" id="15">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail15">植物名稱</h6>
-                    <p id="guest15">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第16題</h5>
+                        <img src="..." class="card-img-top" alt="" id="15">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail15">植物名稱</h6>
+                        <p id="guest15">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第17題</h5>
-                    <img src="..." class="card-img-top" alt="" id="16">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail16">植物名稱</h6>
-                    <p id="guest16">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第17題</h5>
+                        <img src="..." class="card-img-top" alt="" id="16">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail16">植物名稱</h6>
+                        <p id="guest16">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第18題</h5>
-                    <img src="..." class="card-img-top" alt="" id="17">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail17">植物名稱</h6>
-                    <p id="guest17">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第18題</h5>
+                        <img src="..." class="card-img-top" alt="" id="17">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail17">植物名稱</h6>
+                        <p id="guest17">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第19題</h5>
-                    <img src="..." class="card-img-top" alt="" id="18">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail18">植物名稱</h6>
-                    <p id="guest18">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第19題</h5>
+                        <img src="..." class="card-img-top" alt="" id="18">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail18">植物名稱</h6>
+                        <p id="guest18">您的回答</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 14rem;">
-                    <h5>第20題</h5>
-                    <img src="..." class="card-img-top" alt="" id="19">
-                    <div class="card-body navbar-fixed-bottom">
-                    <h6 class="card-text" id="detail19">植物名稱</h6>
-                    <p id="guest19">您的回答</p>
+                    <div class="card" style="width: 14rem;">
+                        <h5>第20題</h5>
+                        <img src="..." class="card-img-top" alt="" id="19">
+                        <div class="card-body navbar-fixed-bottom">
+                        <h6 class="card-text" id="detail19">植物名稱</h6>
+                        <p id="guest19">您的回答</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
  
@@ -253,12 +273,11 @@
     
     <!-- 引用自己寫的 js -->
     <script src="main.js"></script>
+
+    <!-- other js -->
+    <script src="animate.js"></script>
+    <script src="soundtrack.js"></script>
     
 
-    <!-- <script>
-        $(() => {
-            $('#summary').text('本次練習一共答對了'+N+"題");
-        })
-    </script> -->
 </body>
 </html>
