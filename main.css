@@ -10,6 +10,7 @@ h2{
  /*========== homepage ==========*/
 .home{
     background-color: rgb(255, 234, 188);
+    font-family: "Helvetica", "Arial","微軟正黑體", 'Noto Sans TC', sans-serif;
 }
 .homepage{
     /* height: 400px; */
