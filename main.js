@@ -180,12 +180,17 @@ function Sound(){
 }
 
 // //倒數
-// var count = new Audio("./music/count.mp3");
-// function Count(){
-//     count.play();
-//     count.currentTime=0;
-// }
-// //倒數十秒
+var count = new Audio("./music/count.mp3");
+function Count(){
+    count.play();
+    count.currentTime=0;
+}
+//停止播放count
+function myStop(){
+    count.pause();
+    count.currentTime = 0;
+}
+//倒數十秒
 var countten = new Audio("music/10sec.mp3");
 function CountTen(){
     countten.play();
@@ -204,6 +209,7 @@ function Anssnd(){
     anssnd.play();
     anssnd.currentTime=0;
 }
+
 //===============================================================
 //==================function1_按下開始練習時執行====================
 //===============================================================
@@ -221,10 +227,12 @@ $(() => {
             $('#info').attr('class','hideResult');
             $('#alert-text').text('');
             $('#left').text('第1/20題');
+            Count();
             // myTimeout(400000, TIME, STOP);
             //========== 設定倒數計時 ==========
             !function MyCounter(){
                 if(time==10000){
+                    myStop();
                     CountTen();
                     $('#TIME').attr('class', 'alertTen');
                     $('#TIME').text("您還剩下" + (time/1000) + "秒");
@@ -283,6 +291,7 @@ $(() => {
         //==================時限內作答完畢呈現答題結果==================
         if(document.getElementById('left').textContent=="第21/20題"){
             RESULT();
+            myStop();
         }
     });
 })
