@@ -120,6 +120,8 @@ function RESULT(){
     $('#left').remove();
     //===============檢視答題結果===============
     $('#result').on('click',()=>{
+        myStop();
+        var time = (-1000);
         Sound();
         Anssnd();
         $('#result').remove();
