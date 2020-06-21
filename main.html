@@ -16,6 +16,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- animate -->
     <link rel="stylesheet" href="animate.css">
+
 </head>
 <body class="home" style="cursor:default;">
     <script>
@@ -41,19 +42,18 @@
                     <h5 id="left"></h5>
                 </div> -->
                 <div id="Choice-test">
-                    <div class="btn btn-block" id="Test1">
+                    <div class="btn btn-block" id="cat">
                         貓
                     </div>
-                    <div class="btn btn-block" id="Test2">
+                    <div class="btn btn-block" id="dog">
                         狗
                     </div>
-                    <div class="btn btn-block" id="Test3">
+                    <div class="btn btn-block" id="pig">
                         豬
                     </div>
-                    <div class="btn btn-block" id="Test4">
+                    <div class="btn btn-block" id="chicken">
                         雞
                     </div>
-                    
                 </div>
                 <div id="Choice" class="hideResult">
                     <div class="btn btn-block btn-choice" id="A">
@@ -278,6 +278,18 @@
     <script src="animate.js"></script>
     <script src="soundtrack.js"></script>
     
-
+    <!-- 離開頁面提示 -->
+    <!-- <script type="text/javascript">
+        window.onbeforeunload = function() {
+        myStop();
+        return "確認離開當前頁面嗎？未保存的數據將會丟失";
+        var yes = confirm('確認離開本次練習嗎？')
+        if(yes){
+            alert("感謝您的光臨！")
+        }else{
+            Count();
+        }
+        }
+    </script> -->
 </body>
 </html>

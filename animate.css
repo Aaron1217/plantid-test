@@ -1,7 +1,15 @@
 /* 參考：https://tobiasahlin.com/ */
 /* 大標題 */
 /* ＠media參考https://www.ucamc.com/e-learning/css/102-rwd-css-media-type */
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 400px){
+  .ml5 {
+    position: relative;
+    font-weight: 300;
+    font-size: 1.6em;
+    color: #402d2d;
+  }
+}
+@media screen and (min-width: 400px){
   .ml5 {
     position: relative;
     font-weight: 300;
@@ -56,11 +64,11 @@
   /*按鈕顯示動畫*/
 /* 參考：https://blog.hubspot.com/website/css-fade-in */
 .fade-in {
-    animation: fadeIn ease 2s;
-    -webkit-animation: fadeIn ease 2s;
-    -moz-animation: fadeIn ease 2s;
-    -o-animation: fadeIn ease 2s;
-    -ms-animation: fadeIn ease 2s;
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+    -moz-animation: fadeIn ease 3s;
+    -o-animation: fadeIn ease 3s;
+    -ms-animation: fadeIn ease 3s;
     }
     @keyframes fadeIn {
     0% {opacity:0;}
@@ -99,3 +107,4 @@
 
 
 
+/* 跑馬燈 */

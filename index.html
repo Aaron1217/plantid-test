@@ -15,42 +15,60 @@
     <link rel="stylesheet" href="animate.css">
     <!-- icon -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#BGM")[0].play();
+        });
+
+        function playsound()
+        {
+            $("#BGM")[0].play();
+            $("#BGM")[0].pause();
+
+            setTimeout(function(){
+                $("#BGM")[0].currentTime = 0;
+                $("#BGM")[0].play();
+            }, 2000);
+        }
+    </script>
 </head>
-<body class="home">
-    <!-- BGM 參考https://www.itread01.com/content/1541140444.html -->
-    <audio src="./music/BGM-Glacier.mp3" id="BGM" loop="loop" preload="auto" autoplay></audio>
-    <!-- 音樂檔案來自YouTube音效庫 -->
-    <div class="container homepage text-center align-items-center">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="ml5">
-                    <span class="text-wrapper">
-                      <span class="line line1"></span>
-                      <span class="letters letters-left">園藝作物</span>
-                      <span class="letters letters-right">識別練習網</span>
-                      <span class="line line2"></span>
-                    </span>
-                  </h1>                  
-                <!-- <h2 style="cursor:default">園藝作物識別練習網</h2> -->
-                <!-- 文字訊息跑馬燈 -->
-                <br>
-                <!-- <marquee direction="right" height="60" scrollamount="2" behavior="alternate" id="marquee" class="hideResult">～歡迎光臨～</marquee> -->
-            </div>
+<body>
+    <div class="container">
+        <div class="homepage text-center align-items-center">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="ml5">
+                        <span class="text-wrapper">
+                          <span class="line line1"></span>
+                          <span class="letters letters-left">園藝作物</span>
+                          <span class="letters letters-right">識別練習網</span>
+                          <span class="line line2"></span>
+                        </span>
+                      </h1>                  
+                    <!-- <h2 style="cursor:default">園藝作物識別練習網</h2> -->
+                    <!-- 文字訊息跑馬燈 -->
+                    <br>
+                    <!-- <marquee direction="right" height="60" scrollamount="2" behavior="alternate" id="marquee" class="hideResult">～歡迎光臨～</marquee> -->
+                </div>
+    
+                <div class="container fade-in">
+                    <!-- <div class="btn" id="S">按我開始</div> -->
+                    <ul class="list-group" id="About" >
+                        <li type="button" class="btn" data-toggle="modal" data-target="#intro">簡介</li>
+                        <!-- <li type="button" class="btn"><a href="./main.html" >開始練習！</a></li> -->
+                        <li type="button" class="btn start" data-toggle="modal" data-target="#play">開始練習</li>
+                        <li type="button" class="btn" data-toggle="modal" data-target="#about">關於...</li>
+                        <li type="button" class="btn" data-toggle="modal" data-target="#music">背景音樂</li>
+                        <!-- <li class="btn">...</li> --> 
+                      </ul>
+                </div>
+                <!-- carousel -->
 
-            <div class="container fade-in">
-                <!-- <div class="btn" id="S">按我開始</div> -->
-                <ul class="list-group" id="About" >
-                    <li type="button" class="btn" data-toggle="modal" data-target="#intro">簡介</li>
-                    <!-- <li type="button" class="btn"><a href="./main.html" >開始練習！</a></li> -->
-                    <li type="button" class="btn" data-toggle="modal" data-target="#play">開始練習</li>
-                    <li type="button" class="btn" data-toggle="modal" data-target="#about">關於...</li>
-                    <!-- <li class="btn">...</li>
-                    <li class="btn">...</li> -->
-                  </ul>
-            </div>
-       </div>
+                
+           </div>
+        </div>
+
     </div>
         <!-- 註腳 -->
         <footer class="footer navbar-fixed-bottom">
@@ -146,7 +164,33 @@
             </div>
         </div>
     </div>
-    
+    <!-- ＢＧＭ -->
+    <div class="modal fade" id="music" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">首頁背景音樂</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <!-- <span aria-hidden="true">&times;</span> -->
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- 音樂開關 -->
+                        <div class="Music text-center">
+                            <!-- BGM 參考https://www.itread01.com/content/1541140444.html -->
+                            <audio id="BGM" class="Music-content" src="./music/BGM-Glacier.mp3" loop="loop" preload="auto" controls="controls" autoplay="autoplay"></audio>
+                            <br>
+                            <h6>（音樂來源：YouTube音效庫）</h6>  
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -170,21 +214,6 @@
     <script src="animate.js"></script>
     <script src="soundtrack.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#BGM")[0].play();
-        });
-
-        function playsound()
-        {
-            $("#BGM")[0].play();
-            $("#BGM")[0].pause();
-
-            setTimeout(function(){
-                $("#BGM")[0].currentTime = 0;
-                $("#BGM")[0].play();
-            }, 2000);
-        }
-    </script>
+    
 </body>
 </html>

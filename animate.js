@@ -45,3 +45,11 @@ anime.timeline({loop: false})
 
 //btn click Sound
 
+
+// $("audio").hover(function(){
+//   $('audio').attr("Music-contentHov");
+// },function(){
+//   $("audio").attr("Music-content");
+// });
+
+//首頁圖片幻燈片

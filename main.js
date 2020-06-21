@@ -1,3 +1,4 @@
+$(document).ready()
 /** 
  * 隨機序列函式序
  * 參考自kChen老師
@@ -22,7 +23,7 @@ var RandomInt = (start, end) => {
  * @param {number} Times 打亂的次數
  * @returns {number} 一個從start到end的整數亂數
  */
-var RandomArray = (start, end,Times)=>{
+var RandomArray = (start, end, Times)=>{
     var randomArray = []
     for (let i = 0; i <end + 1; i++) {
         randomArray.push(i)
@@ -121,13 +122,13 @@ function RESULT(){
     $('#result').on('click',()=>{
         Sound();
         Anssnd();
+        $('#result').remove();
         // 延遲顯示答案
         !function MyCounter(){
             if(wait<=0){
                 $('#allResult').attr('class','showResult');
                 $('#test-area').remove();
                 $('#summary').text('您答對：'+score+'題；作答時間：'+ timeUse +'秒')
-                $('#result').remove();
                 $('#HOME').attr('class','showResult');
                 $('#AGAIN').attr('class','showResult');
                 
@@ -178,9 +179,8 @@ function Sound(){
     snd.play();
     snd.currentTime=0;
 }
-
 // //倒數
-var count = new Audio("./music/count.mp3");
+var count = new Audio("music/count.mp3");
 function Count(){
     count.play();
     count.currentTime=0;
@@ -204,10 +204,17 @@ function CountTen(){
 // }
 //答案揭曉
 var wait=1000;
-var anssnd = new Audio("./music/answer.mp3")
+var anssnd = new Audio("music/answer.mp3")
 function Anssnd(){
     anssnd.play();
     anssnd.currentTime=0;
+}
+
+//btn-hover音效
+var sndHov = new Audio("music/SoundHov.mp3");
+function SoundHov(){
+    sndHov.play();
+    sndHov.currentTime=0;
 }
 
 //===============================================================
@@ -215,7 +222,6 @@ function Anssnd(){
 //===============================================================
 $(() => {
     // $('#S').on('click',() =>{$('#About').fadeIn(3000);});
-    
     $('#start').on('click',() => {
         Sound();
         var yes = confirm('準備好了嗎？');
