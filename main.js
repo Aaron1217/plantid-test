@@ -15,6 +15,7 @@ var RandomInt = (start, end) => {
     r = r + start
     return r
 }
+var is_end=false;
 
 /**
  * 產生從 start 到 end 的整數亂數，每次執行打亂 Times 次
@@ -120,11 +121,9 @@ function RESULT(){
     $('#left').remove();
     //===============檢視答題結果===============
     $('#result').on('click',()=>{
-        myStop();
-        var time = (-1000);
         Sound();
         Anssnd();
-        $('#result').remove();
+        $('#alert-text').remove();
         // 延遲顯示答案
         !function MyCounter(){
             if(wait<=0){
@@ -239,32 +238,36 @@ $(() => {
             // myTimeout(400000, TIME, STOP);
             //========== 設定倒數計時 ==========
             !function MyCounter(){
-                if(time==10000){
-                    myStop();
-                    CountTen();
-                    $('#TIME').attr('class', 'alertTen');
-                    $('#TIME').text("您還剩下" + (time/1000) + "秒");
-                    setTimeout(MyCounter, 1000);
-                    timeUse=timeUse+1;
-                }else if(time<=0){
-                    $('#TIME').text("時間到！");
-                    var Timesup = new Audio("./music/Timesup.mp3");
-                    Timesup.play();
-                    Timesup.currentTime=0;
-                    RESULT();
-                } else if(time>10000){
-                    $('#TIME').text("您還剩下" + (time/1000) + "秒");
-                    setTimeout(MyCounter, 1000);
-                    timeUse=timeUse+1;
-                } else{
-                    $('#TIME').attr('class', 'alertTen');
-                    $('#TIME').text("您還剩下" + (time/1000) + "秒");
-                    setTimeout(MyCounter, 1000);
-                    timeUse=timeUse+1;
+                // console.log(is_end);
+                if(!is_end){
+                    if(time==10000){
+                        myStop();
+                        CountTen();
+                        $('#TIME').attr('class', 'alertTen');
+                        $('#TIME').text("您還剩下" + (time/1000) + "秒");
+                        setTimeout(MyCounter, 1000);
+                        timeUse=timeUse+1;
+                    }else if(time==0){
+                        is_end =true;
+                        // $('#TIME').text("時間到！");
+                        // var Timesup = new Audio("./music/Timesup.mp3");
+                        // Timesup.play();
+                        // Timesup.currentTime=0;
+                        RESULT();
+                        return;
+                    } else if(time>10000){
+                        $('#TIME').text("您還剩下" + (time/1000) + "秒");
+                        setTimeout(MyCounter, 1000);
+                        timeUse=timeUse+1;
+                    } else{
+                        $('#TIME').attr('class', 'alertTen');
+                        $('#TIME').text("您還剩下" + (time/1000) + "秒");
+                        setTimeout(MyCounter, 1000);
+                        timeUse=timeUse+1;
+                    }
+                    time-=1000;
                 }
-                time-=1000; 
             }();
-            
             changeURL();  //產生下一張圖片
             RandomFour();  //產生4個順序打亂的選項代號(含答案)
             insertChoice();  //依序將打亂的選項代號對應的名稱填入選項中
@@ -298,7 +301,11 @@ $(() => {
 
         //==================時限內作答完畢呈現答題結果==================
         if(document.getElementById('left').textContent=="第21/20題"){
-            RESULT();
+            $('#test-area').remove('');
+            $('#TIME').remove('');
+            $('#left').remove();
+            time =0;
+            // RESULT();
             myStop();
         }
     });
