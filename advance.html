@@ -20,60 +20,45 @@
 </head>
 <body>
     <script>
-        alert('本次練習一共20題，作答時間200秒，請觀察右圖後選擇左方相對應的名稱。');
+        alert('本次練習一共 15 題，每次觀看圖片 5 秒後，選擇相對應的答案。');
     </script>
     <div class="container">
         <div class="text-center">
-            <h2>園藝作物識別練習網-簡易模式</h2>
+            <h2>園藝作物識別練習網-進階模式！</h2>
             <h5 id="alert-text">(以下為作答示意畫面)</h5>
             <div class="text-center hideResult" id="HOME"><a href="index.html" class="btn-main">按我回首頁</a></div>
-            <div class="text-center hideResult" id="AGAIN"><a href="main.html" class="btn-main">再試一次</a></div>
-            <div class="text-center hideResult" id="ADVANCE"><a href="advance.html" class="btn-main">我要挑戰進階模式！</a></div>
+            <div class="text-center hideResult" id="PRACTICE"><a href="main.html" class="btn-main">回到練習模式~</a></div>
+            <div class="text-center hideResult" id="AGAIN"><a href="advance.html" class="btn-main">點我繼續練功！</a></div>
             <h4 id="left"></h4>
             <h4 id="TIME"></h4>
-            
         </div>
         <div class="row" id="test-area">
-            <!-- 選擇區 -->
-            <div class="col-6 text-center flex">
-                <div id="info">
+            <!-- 圖片顯示處 -->
+            <div class="col-12 answer flex" id="imgAnswer">
+                <div id="info" class="text-center">
                     <button class="btn" id="start">按我開始</button>
                 </div>
-                <!-- <div>
-                    <h5 id="left"></h5>
-                </div> -->
-                <div id="Choice-test">
-                    <div class="btn btn-block" id="cat">
-                        貓
-                    </div>
-                    <div class="btn btn-block" id="dog">
-                        狗
-                    </div>
-                    <div class="btn btn-block" id="pig">
-                        豬
-                    </div>
-                    <div class="btn btn-block" id="chicken">
-                        雞
-                    </div>
-                </div>
-                <div id="Choice" class="hideResult">
-                    <div class="btn btn-block btn-choice" id="A">
-                    </div>
-                    <div class="btn btn-block btn-choice" id="B">
-                    </div>
-                    <div class="btn btn-block btn-choice" id="C">
-                    </div>
-                    <div class="btn btn-block btn-choice" id="D">
-                    </div>
-                </div>
-            </div>
-            <!-- 圖片顯示處 -->
-            <div class="col-6 answer flex">
-                <div id="imgplace">
+                <div id="imgplace" class="adv-img">
                     <img src="./img/ready.jpg" alt="準備畫面" class="imgplace">
                 </div>
             </div>
-            
+            <!-- 選擇區 -->
+            <div class="col-12 text-center flex">
+                <div id="Choice" class="hideResult col">
+                        <div class="btn btn-block btn-choice" id="A">
+                        </div>
+                        <div class="btn btn-block btn-choice" id="B">
+                        </div>
+                        <div class="btn btn-block btn-choice" id="C">
+                        </div>
+                        <div class="btn btn-block btn-choice" id="D">
+                        </div>
+                        <div class="btn btn-block btn-choice" id="E">
+                        </div>
+                        <div class="btn btn-block btn-choice" id="F">
+                        </div>
+                </div>
+            </div>
         </div>
 
         <!-- Result -->
@@ -206,53 +191,10 @@
                         <p id="guest14">您的回答</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 14rem;">
-                        <h5>第16題</h5>
-                        <img src="..." class="card-img-top" alt="" id="15">
-                        <div class="card-body navbar-fixed-bottom">
-                        <h6 class="card-text" id="detail15">植物名稱</h6>
-                        <p id="guest15">您的回答</p>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14rem;">
-                        <h5>第17題</h5>
-                        <img src="..." class="card-img-top" alt="" id="16">
-                        <div class="card-body navbar-fixed-bottom">
-                        <h6 class="card-text" id="detail16">植物名稱</h6>
-                        <p id="guest16">您的回答</p>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14rem;">
-                        <h5>第18題</h5>
-                        <img src="..." class="card-img-top" alt="" id="17">
-                        <div class="card-body navbar-fixed-bottom">
-                        <h6 class="card-text" id="detail17">植物名稱</h6>
-                        <p id="guest17">您的回答</p>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14rem;">
-                        <h5>第19題</h5>
-                        <img src="..." class="card-img-top" alt="" id="18">
-                        <div class="card-body navbar-fixed-bottom">
-                        <h6 class="card-text" id="detail18">植物名稱</h6>
-                        <p id="guest18">您的回答</p>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14rem;">
-                        <h5>第20題</h5>
-                        <img src="..." class="card-img-top" alt="" id="19">
-                        <div class="card-body navbar-fixed-bottom">
-                        <h6 class="card-text" id="detail19">植物名稱</h6>
-                        <p id="guest19">您的回答</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
- 
-
 
     <!-- 註腳 -->
     <!-- <footer class="footer navbar-fixed-bottom">
@@ -273,8 +215,7 @@
     </script> 
     
     <!-- 引用自己寫的 js -->
-    <script src="main.js"></script>
-
+    <script src="advance.js"></script>
     <!-- other js -->
     <script src="animate.js"></script>
     <script src="soundtrack.js"></script>

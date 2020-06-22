@@ -64,8 +64,6 @@
                       </ul>
                 </div>
                 <!-- carousel -->
-                
-                
            </div>
         </div>
         <!-- 跑馬燈 -->
@@ -127,10 +125,10 @@
                     <h4 class="text-center">請選擇難度</h4>
                     <div class="division"></div>
                     <div class="row">
-                        <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="點我進入練習模式" onclick="location.href='main.html'" id="Test" data-toggle="tooltip" data-placement="top" title="Tooltip on top">練習版</button>
-                        <button type="button" class="btn" onclick="location.href='./advance.html'" disabled="disabled" title="開發中～">進階版</button>
-                        <button type="button" class="btn" onclick="location.href='#'" disabled="disabled" title="開發中～">困難版</button>
-                        <button type="button" class="btn" onclick="location.href='#'" disabled="disabled" title="開發中～">困難版pro</button>
+                        <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="點我進入簡易模式" onclick="location.href='main.html'" id="Test" data-toggle="tooltip" data-placement="top" title="Tooltip on top">簡易模式</button>
+                        <button type="button" class="btn" onclick="location.href='./advance.html'" title="點我進入進階模式">進階模式</button>
+                        <button type="button" class="btn" onclick="location.href='#'" disabled="disabled" title="開發中～">困難模式</button>
+                        <button type="button" class="btn" onclick="location.href='#'" disabled="disabled" title="開發中～">困難模式pro</button>
                     </div>
                     <div>
                 </div>
@@ -215,5 +213,29 @@
     <script src="animate.js"></script>
     <script src="soundtrack.js"></script>
 
+
+    <!-- 判斷裝置為PC or 行動裝置 參考https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/271150/-->
+    <script type="text/javascript">
+        function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        // document.writeln("您的瀏覽裝置為：");
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+        // document.writeln("phone");
+        $('#BGM').attr('src', 'https://aaron1217.github.io/plantid-test/music/BGM-Glacier.ogg')
+        } else {
+        // document.writeln("pc");
+        $('#BGM').attr('src', 'https://aaron1217.github.io/plantid-test/music/BGM-Glacier.mp3')
+        }
+        }
+        browserRedirect();
+        </script>
 </body>
 </html>
